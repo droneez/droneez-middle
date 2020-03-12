@@ -1,0 +1,11 @@
+::ng-deep {
+	#logo {
+		display: none !important;
+	}
+	.fr-wrapper.show-placeholder {
+		div:not(.fr-element.fr-view) {
+			//display: none !important;
+		}
+	}
+}
+

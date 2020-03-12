@@ -1,0 +1,28 @@
+.card {
+	cursor:pointer;
+	.card-header {
+		background: white;
+		.cover-wrapper {
+			height: 7rem;
+			position:relative;
+			img {
+				position:absolute;
+				max-width: 100%;
+				max-height: 100%;
+				height:auto;
+				width:auto;
+				left: 50%;
+			    top: 50%;
+			    transform: translate3d(-50%,-50%,0);
+			}
+		}
+	}
+	.card-title {
+		height:4.5rem;
+	    display: -webkit-box;
+	    -webkit-line-clamp: 3;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    -webkit-box-orient: vertical;
+	}
+}
