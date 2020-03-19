@@ -2,72 +2,91 @@
   	<div class="container-fluid">
         <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
 
-        <div class="row">
-            <div class="col-12">
-                <mat-form-field appearance="outline">
-                    <mat-label>Titre</mat-label>
-                    <input id="title" type="text" formControlName="title" matInput placeholder="Titre">
-                </mat-form-field>
+            <mat-card>
+                <mat-card-content>
+                    <mat-slide-toggle
+                        [color]="color"
+                        [checked]="isPublished"
+                        (change)="isPublished=!isPublished"
+                        >
+                        Publié
+                    </mat-slide-toggle>
+                    <!--<mat-checkbox [(ngModel)]="isPublished">Publié</mat-checkbox>
+                    <mat-radio-group [(ngModel)]="labelPosition">
+                        <mat-radio-button class="example-margin" value="after">After</mat-radio-button>
+                        <mat-radio-button class="example-margin" value="before">Before</mat-radio-button>
+                    </mat-radio-group>-->
+                </mat-card-content>
+            </mat-card>
+
+            <div class="row">
+                <div class="col-12">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Titre</mat-label>
+                        <input id="title" type="text" formControlName="title" matInput placeholder="Titre">
+                    </mat-form-field>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-3">
-                <div 
-                  [froalaEditor]='options2'
-                  [(froalaModel)]="editorContent2"
-                ></div>
+            <div class="row">
+                <div class="col-3">
+                    <div 
+                      [froalaEditor]='options2'
+                      [(froalaModel)]="editorContent2"
+                    ></div>
+                </div>
             </div>
-        </div>
-      	<div class="row">
-          	<div class="col-12">
-          	  	<div 
-          	  	  [froalaEditor]='options'
-          	  	  [(froalaModel)]="editorContent"
-          	  	></div>
+          	<div class="row">
+              	<div class="col-12">
+              	  	<div 
+              	  	  [froalaEditor]='options'
+              	  	  [(froalaModel)]="editorContent"
+              	  	></div>
+              	</div>
           	</div>
-      	</div>
-        <div class="row">
-            <div class="col-12">
-                <mat-form-field appearance="outline">
-                    <mat-label>Auteur</mat-label>
-                    <input id="author" type="text" formControlName="author" matInput placeholder="Auteur">
-                </mat-form-field>
+            <div class="row">
+                <div class="col-12">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Auteur</mat-label>
+                        <input id="author" type="text" formControlName="author" matInput placeholder="Auteur">
+                    </mat-form-field>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <mat-form-field appearance="outline">
-                    <mat-label>Url</mat-label>
-                    <input id="url" type="text" formControlName="url" matInput placeholder="Url">
-                </mat-form-field>
+            <div class="row">
+                <div class="col-12">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Url</mat-label>
+                        <input id="url" type="text" formControlName="url" matInput placeholder="Url">
+                    </mat-form-field>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <mat-form-field appearance="outline">
-                    <mat-label>Description</mat-label>
-                    <textarea matInput #descriptionInput maxlength="256" id="description" type="text" formControlName="description"></textarea>
-                    <mat-hint align="end">{{descriptionInput.value?.length || 0}}/256</mat-hint>
-                </mat-form-field>
+            <div class="row">
+                <div class="col-12">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Description</mat-label>
+                        <textarea matInput #descriptionInput maxlength="256" id="description" type="text" formControlName="description"></textarea>
+                        <mat-hint align="end">{{descriptionInput.value?.length || 0}}/256</mat-hint>
+                    </mat-form-field>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <mat-form-field appearance="outline">
-                    <mat-label>Mots clés</mat-label>
-                    <input matInput placeholder="Mots clés" id="keywords" type="text" formControlName="keywords">
-                </mat-form-field>
+            <div class="row">
+                <div class="col-12">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Mots clés</mat-label>
+                        <input matInput placeholder="Mots clés" id="keywords" type="text" formControlName="keywords">
+                    </mat-form-field>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <mat-form-field appearance="outline">
-                    <mat-label>SEO image description</mat-label>
-                    <input matInput placeholder="SEO image description" id="altSEOImg" type="text" formControlName="altSEOImg">
-                </mat-form-field>
+            <div class="row">
+                <div class="col-12">
+                    <mat-form-field appearance="outline">
+                        <mat-label>SEO image description</mat-label>
+                        <input matInput placeholder="SEO image description" id="altSEOImg" type="text" formControlName="altSEOImg">
+                    </mat-form-field>
+                </div>
             </div>
-        </div>
-        <button mat-button type="submit">send example</button>
+            <button mat-button type="submit">
+                {{ isNewArticle ? "Sauvegarder" : "Mettre à jour" }}
+            </button>
         </form>
   	</div>
 </div>

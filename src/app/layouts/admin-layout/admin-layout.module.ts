@@ -32,8 +32,14 @@ import {
   MatRippleModule,
   MatFormFieldModule,
   MatTooltipModule,
-  MatSelectModule
+  MatSelectModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatSlideToggleModule,
+  MatButtonToggleModule,
+  MatIconModule,
 } from '@angular/material';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -46,6 +52,11 @@ import {
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatSlideToggleModule,
+    MatButtonToggleModule,
+    MatIconModule,
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot(),
   ],

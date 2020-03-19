@@ -12,15 +12,15 @@ export class TableListComponent implements OnInit {
 	articles: any[];
 	articlesFilesUrl: string;
 
-  constructor(
-  	private articlesService: ArticlesService,
-  ) { 
-  	this.articlesFilesUrl = environment.articlesFilesUrl;
-		articlesService.getArticlesInfos().subscribe((data)=>{
+    constructor(
+        private articlesService: ArticlesService,
+    ) { 
+  	    this.articlesFilesUrl = environment.articlesFilesUrl;
+		articlesService.getArticlesInfosAll().subscribe((data)=>{
 		    this.articles = data;
 		    console.dir(data);		    
 		});
-  }
+    }
 
 	ngOnInit() {
 	  	

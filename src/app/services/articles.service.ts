@@ -21,14 +21,23 @@ export class ArticlesService {
   		private configService: ConfigService) {
   	}
 
-  	getArticlesInfos(): Observable<any[]> {
-  		const url = `${this.configService.getUrl('articlesInfosUrl')}`;
+  	getArticlesInfosAll(): Observable<any[]> {
+  		const url = `${this.configService.getUrl('articlesInfosAllUrl')}`;
   		return this.http.get<any[]>(url)
   			.pipe(
   				retry(3),
   				catchError(this.handleError)
   			);
   	}
+
+    getArticlesInfos(): Observable<any[]> {
+          const url = `${this.configService.getUrl('articlesInfosUrl')}`;
+          return this.http.get<any[]>(url)
+              .pipe(
+                  retry(3),
+                  catchError(this.handleError)
+              );
+      }  
 
   	getArticleById(id: number): Observable<any> {
   		const url = `${this.configService.getUrl('articleUrls').read}${id}`;
