@@ -72,7 +72,13 @@ export class ArticleEditorComponent implements OnInit {
         });
 
         this.isPublished = false;
+    }
 
+  	ngOnInit() {
+        
+  	}
+
+    ngAfterViewInit() {
         // Permet de savoir si on créé un nouvel article ou si on en update un
         if(!this.route.snapshot.queryParams.articleId) {
             this.isNewArticle = true;
@@ -80,28 +86,27 @@ export class ArticleEditorComponent implements OnInit {
         } else {
             this.isNewArticle = false;
 
-            articlesService.getArticleById(this.route.snapshot.queryParams.articleId).subscribe((data)=>{
+            this.articlesService.getArticleById(this.route.snapshot.queryParams.articleId).subscribe((data)=>{
                 this.article = data;
                 console.dir(this.article);      
 
-                this.editorContent = this.article.content;
-                this.editorContent2 = '<img src="' + environment.articlesFilesUrl + '/' + this.article.cover + '" style="width: 300px;" class="fr-fic fr-dib fr-draggable">';
-                this.isPublished = this.article.status === "published";
+                setTimeout(()=>{
+                    this.editorContent = this.article.content;
+                    this.editorContent2 = '<img src="' + environment.articlesFilesUrl + '/' + this.article.cover + '" style="width: 300px;" class="fr-fic fr-dib fr-draggable">';
+                    this.isPublished = this.article.status === "published";
 
-                this.checkoutForm.patchValue({
-                    title: this.article.title,
-                    author: this.article.author,
-                    url: this.article.url,
-                    description: this.article.description,
-                    keywords: this.article.keywords,
-                    altSEOImg: this.article.seo_image_alt
-                });
+                    this.checkoutForm.patchValue({
+                        title: this.article.title,
+                        author: this.article.author,
+                        url: this.article.url,
+                        description: this.article.description,
+                        keywords: this.article.keywords,
+                        altSEOImg: this.article.seo_image_alt
+                    });
+                },50);
             });
         }
     }
-
-  	ngOnInit() {
-  	}
 
     onSubmit(formObject) {
         this.sendArticle(formObject);
