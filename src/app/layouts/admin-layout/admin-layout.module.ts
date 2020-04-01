@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
+import { AdminLayoutComponent } from '../../layouts/admin-layout/admin-layout.component';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
 import { TableListComponent } from '../../table-list/table-list.component';
@@ -13,6 +14,7 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ArticleEditorComponent } from '../../article-editor/article-editor.component';
 
+import { ComponentsModule } from '@components/components.module';
 
 // Import all Froala Editor plugins.
 import 'froala-editor/js/plugins.pkgd.min.js';
@@ -59,8 +61,10 @@ import {
     MatIconModule,
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot(),
+    ComponentsModule
   ],
   declarations: [
+    AdminLayoutComponent,
     DashboardComponent,
     UserProfileComponent,
     TableListComponent,
@@ -70,6 +74,9 @@ import {
     NotificationsComponent,
     UpgradeComponent,
     ArticleEditorComponent,
+  ],
+  exports: [
+
   ]
 })
 

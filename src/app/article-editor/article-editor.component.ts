@@ -5,7 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { ArticlesService } from "./../services/articles.service";
+import { ArticlesService } from "@services/articles.service";
 import { ThemePalette } from '@angular/material/core';
 
 const httpOptions = {
@@ -82,7 +82,7 @@ export class ArticleEditorComponent implements OnInit {
         // Permet de savoir si on créé un nouvel article ou si on en update un
         if(!this.route.snapshot.queryParams.articleId) {
             this.isNewArticle = true;
-            this.editorContent = '<article><p>&nbsp;<\/p><p><span>Afin de toujours connaître l’actu <a href="https:\/\/www.droneez.com\/">DRONEEZ<\/a>&nbsp;nous vous invitons à&nbsp;liker&nbsp;<\/span><\/p><p><span>notre&nbsp;<a href="https:\/\/www.facebook.com\/droneez">page&nbsp;Facebook<\/a>&nbsp;et à vous inscrire à notre&nbsp;<a>newsletter<\/a>&nbsp;!<\/span><\/p><p><span>Mille mercis pour votre fidélité !<\/span><\/p><p>&nbsp;<\/p><div class="end"><span><strong>Que le drone soit avec vous!<\/strong><\/span><\/div><div class="end"><span><strong>L’équipe DRONEEZ<\/strong><\/span><\/div><p>&nbsp;<\/p><\/div> <\/article>';
+            this.editorContent = '<article class="new-article"><p>&nbsp;<\/p><p><span>Afin de toujours connaître l’actu <a href="https:\/\/www.droneez.com\/">DRONEEZ<\/a>&nbsp;nous vous invitons à&nbsp;liker&nbsp;<\/span><\/p><p><span>notre&nbsp;<a href="https:\/\/www.facebook.com\/droneez">page&nbsp;Facebook<\/a>&nbsp;et à vous inscrire à notre&nbsp;<a>newsletter<\/a>&nbsp;!<\/span><\/p><p><span>Mille mercis pour votre fidélité !<\/span><\/p><p>&nbsp;<\/p><div class="end"><span><strong>Que le drone soit avec vous!<\/strong><\/span><\/div><div class="end"><span><strong>L’équipe DRONEEZ<\/strong><\/span><\/div><p>&nbsp;<\/p><\/div> <\/article>';
         } else {
             this.isNewArticle = false;
 

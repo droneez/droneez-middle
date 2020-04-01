@@ -1,5 +1,7 @@
 export const environment = {
   production: true,
+  apiUrl: 'https://api.droneez.com',
+  articlesApiUrl: 'https://api.droneez.com/article',
   configAPIUrl: 'https://api.droneez.com/config/read.php',
   articlesCreateUrl: 'https://api.droneez.com/article/create/',
   articlesReadUrl:'https://api.droneez.com/article/read/',

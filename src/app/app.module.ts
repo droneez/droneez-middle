@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app.routing';
-import { ComponentsModule } from './components/components.module';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -19,9 +18,9 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { UpgradeComponent } from './upgrade/upgrade.component';
 import { ArticleEditorComponent } from './article-editor/article-editor.component';
 import { AgmCoreModule } from '@agm/core';
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
 import { ConfigService } from './services/config.service';
+import { AuthenticationModule } from '@modules/authentication';
 
 export function loadConfigurations(configService: ConfigService) {
     return () => configService.getConfig();
@@ -34,16 +33,15 @@ export function loadConfigurations(configService: ConfigService) {
     ReactiveFormsModule,
     HttpModule,
     HttpClientModule,
-    ComponentsModule,
     RouterModule,
     AppRoutingModule,
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     }),
+    AuthenticationModule.forRoot()
   ],
   declarations: [
-    AppComponent,
-    AdminLayoutComponent,
+    AppComponent
   ],
   providers: [
     ConfigService,

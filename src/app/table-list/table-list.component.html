@@ -1,7 +1,5 @@
 <div class="main-content">
     <div class="container-fluid">
-
-
         <mat-label>Filtres : </mat-label>
         <mat-button-toggle-group #filter="matButtonToggleGroup" value="all">
             <mat-button-toggle value="all" aria-label="all articles filter">
@@ -15,35 +13,24 @@
             </mat-button-toggle>
         </mat-button-toggle-group>
         <!--<div class="example-selected-value">Selected value: {{filter.value}}</div>-->
-
-
         <div class="row">
             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card card-chart" routerLink="/article-editor">
-                    <div class="card-header card-header-success">
-                        <div class="cover-wrapper">
-                            <!--<img [src]="'https://www.droneez.com/00_articles_files/' + article.media_folder_name + '/' + article.cover" alt="Card image cap">-->
-                        </div>
-                    </div>
+                <div class="card add-article card-chart" routerLink="/article-editor">
+                    <span class="add-article-icon"><i class="material-icons">add_circle</i></span>
                     <div class="card-body">
-                        <h4 class="card-title">Nouvel article</h4>
+                        <h4 class="card-title">Ecrire un nouvel article</h4>
                         <p class="card-category">
-                            <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.
+                            <span class="text-success"></span>
                         </p>
-                    </div>
-                    <div class="card-footer">
-                        <div class="stats">
-                            <i class="material-icons">access_time</i> updated 4 minutes ago
-                        </div>
                     </div>
                 </div>
             </div>
             <ng-container *ngFor="let article of articles">
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngIf="filter.value === 'all' || article.status === filter.value">
                     <div class="card card-chart" routerLink="/article-editor" [queryParams]="{articleId:article.id}">
-                        <div class="card-header card-header-success">
+                        <div class="card-header card-header-success" [ngStyle]="{'background-image': 'url(' + '&quot;' + articlesFilesUrl + '/' + article.media_folder_name + '/' + article.cover + '&quot;' + ')'}">
                             <div class="cover-wrapper">
-                                <img [src]="articlesFilesUrl + '/' + article.media_folder_name + '/' + article.cover" alt="Card image cap">
+                                <!--<img [src]="articlesFilesUrl + '/' + article.media_folder_name + '/' + article.cover" alt="Card image cap">-->
                             </div>
                         </div>
                         <div class="card-body">
@@ -249,3 +236,4 @@
             </div>-->
         </div>
     </div>
+</div>
